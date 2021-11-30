@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cube : PlayerController
+public class Sphere : PlayerController
 {
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +13,6 @@ public class Cube : PlayerController
     // Update is called once per frame
     void Update()
     {
-        //input space+ check if on ground then jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Jump();
@@ -26,5 +23,4 @@ public class Cube : PlayerController
     {
         base.Jump();
     }
-    
 }

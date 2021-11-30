@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     protected Rigidbody playerRb;
     [SerializeField]
     protected float characterForce;
+    [SerializeField]
+    protected bool isGrounded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,5 +27,14 @@ public class PlayerController : MonoBehaviour
     public virtual void Jump()
     {
         playerRb.AddForce(new Vector3(0, 1, 0)*characterForce, ForceMode.Impulse);
+        isGrounded = false;
+    }
+
+    protected void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.GetComponent<Ground>())
+        {
+            isGrounded = true;
+        }
     }
 }
