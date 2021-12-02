@@ -24,10 +24,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public virtual void Jump()
+    protected virtual void Jump()
     {
         playerRb.AddForce(new Vector3(0, 1, 0)*characterForce, ForceMode.Impulse);
-        isGrounded = false;
+        
     }
 
     protected void OnCollisionEnter(Collision collision)
