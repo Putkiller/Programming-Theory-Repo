@@ -6,11 +6,12 @@ public class Cube : PlayerController
 {
     [SerializeField]
     float time = 0f;
+    bool heldDownJump = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        characterForce = 10;
+        characterForce = 0.2f;
     }
 
     // Update is called once per frame
@@ -23,9 +24,18 @@ public class Cube : PlayerController
             Jump();
         }
         */
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKey(KeyCode.Space) && time < 0.5f && (isGrounded || heldDownJump))
         {
             time += Time.deltaTime;
+            heldDownJump = true;
+
+            Jump();
+        }
+
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            heldDownJump = false;
+            time = 0;
         }
 
     }
