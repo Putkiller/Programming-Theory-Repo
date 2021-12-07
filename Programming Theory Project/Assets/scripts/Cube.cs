@@ -9,12 +9,15 @@ public class Cube : PlayerController
     bool heldDownJump = false;
     float timeHeldDownJump = 0.5f;
 
-    float jumpHeight = 5f;
+    float jumpHeight = 7f;
+    float cancelRate = 70f;
+
+    public float grav;
 
     // Start is called before the first frame update
     void Start()
     {
-        characterForce = 25f;
+        grav = Physics.gravity.magnitude;
     }
 
     // Update is called once per frame
@@ -29,32 +32,44 @@ public class Cube : PlayerController
         */
         if(Input.GetKey(KeyCode.Space) && time < timeHeldDownJump && (isGrounded || heldDownJump))
         {
+            if (!heldDownJump)
+            {
+                Jump();
+            }
+
             time += Time.deltaTime;
             heldDownJump = true;
-
-            Jump();
+            
         }
 
         if(Input.GetKeyUp(KeyCode.Space) || time > timeHeldDownJump)
         {
             heldDownJump = false;
             time = 0;
-            StartFall();
+            
         }
 
+    }
+
+    private void FixedUpdate()
+    {
+        if(heldDownJump == false && isGrounded == false)
+        {
+            StartFall();
+        }
     }
 
     protected override void Jump()
     {
         characterForce = CalculateJumpForce();
 
-        playerRb.AddForce(new Vector3(0, 1, 0) * characterForce * Time.deltaTime, ForceMode.VelocityChange);
+        playerRb.AddForce(new Vector3(0, 1, 0) * characterForce , ForceMode.Impulse);
         isGrounded = false;
     }
 
     void StartFall()
     {
-        playerRb.AddForce(new Vector3(0, 0, 0) * characterForce, ForceMode.VelocityChange);
+        playerRb.AddForce(new Vector3(0, -1, 0) * cancelRate, ForceMode.Force);
     }
 
     
