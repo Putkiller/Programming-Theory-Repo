@@ -213,6 +213,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1397522897523110993, guid: 5efc0016179994e4d8291a9e11858bb4, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3644690043664558759, guid: 5efc0016179994e4d8291a9e11858bb4, type: 3}
       propertyPath: m_Name
       value: cube
@@ -227,7 +231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7575894231277820266, guid: 5efc0016179994e4d8291a9e11858bb4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 7575894231277820266, guid: 5efc0016179994e4d8291a9e11858bb4, type: 3}
       propertyPath: m_LocalPosition.z

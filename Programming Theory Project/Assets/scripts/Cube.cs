@@ -7,11 +7,14 @@ public class Cube : PlayerController
     [SerializeField]
     float time = 0f;
     bool heldDownJump = false;
+    float timeHeldDownJump = 0.5f;
+
+    float jumpHeight = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        characterForce = 0.2f;
+        characterForce = 25f;
     }
 
     // Update is called once per frame
@@ -24,7 +27,7 @@ public class Cube : PlayerController
             Jump();
         }
         */
-        if(Input.GetKey(KeyCode.Space) && time < 0.5f && (isGrounded || heldDownJump))
+        if(Input.GetKey(KeyCode.Space) && time < timeHeldDownJump && (isGrounded || heldDownJump))
         {
             time += Time.deltaTime;
             heldDownJump = true;
@@ -32,18 +35,38 @@ public class Cube : PlayerController
             Jump();
         }
 
-        if(Input.GetKeyUp(KeyCode.Space))
+        if(Input.GetKeyUp(KeyCode.Space) || time > timeHeldDownJump)
         {
             heldDownJump = false;
             time = 0;
+            StartFall();
         }
 
     }
 
     protected override void Jump()
     {
-        base.Jump();
+        characterForce = CalculateJumpForce();
+
+        playerRb.AddForce(new Vector3(0, 1, 0) * characterForce * Time.deltaTime, ForceMode.VelocityChange);
         isGrounded = false;
     }
+
+    void StartFall()
+    {
+        playerRb.AddForce(new Vector3(0, 0, 0) * characterForce, ForceMode.VelocityChange);
+    }
+
+    
+    float CalculateJumpForce()
+    {
+        float jumpForce = 0f;
+        // h = v^2/(2g)
+        // v = sqrt(h* 2g)
+        jumpForce = Mathf.Sqrt(jumpHeight * 2 * Physics.gravity.magnitude);
+
+        return jumpForce;
+    }
+    
     
 }
