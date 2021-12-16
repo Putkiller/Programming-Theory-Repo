@@ -31,7 +31,7 @@ public class Cube : PlayerController
             Jump();
         }
         */
-        if(Input.GetKey(KeyCode.Space) && time < timeHeldDownJump && (isGrounded || heldDownJump))
+        if(Input.GetKey(KeyCode.Space) && time < timeHeldDownJump && (isGrounded || heldDownJump) && !GameManager.gameOver)
         {
             if (!heldDownJump)
             {

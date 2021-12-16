@@ -13,6 +13,10 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //spawn player
+
+
+        //spawn obstacles
         spawnPos = new Vector3(22, 0.28f, -3f);
         StartCoroutine(Spawn());
     }
