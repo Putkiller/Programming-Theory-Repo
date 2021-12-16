@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//INHERITANCE
 public class Capsule : PlayerController
 {
+    //ENCAPSULATION
     int jumpCount = 1;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class Capsule : PlayerController
         }
     }
 
+    //POLYMORPHISM
     protected override void Jump()
     {
         base.Jump();

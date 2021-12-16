@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//INHERITANCE
 public class Cube : PlayerController
 {
     [SerializeField]
@@ -58,7 +59,7 @@ public class Cube : PlayerController
             StartFall();
         }
     }
-
+    //POLYMORPHISM
     protected override void Jump()
     {
         characterForce = CalculateJumpForce();
@@ -72,7 +73,7 @@ public class Cube : PlayerController
         playerRb.AddForce(new Vector3(0, -1, 0) * cancelRate, ForceMode.Force);
     }
 
-    
+    //ABSTRACTION
     float CalculateJumpForce()
     {
         float jumpForce = 0f;
