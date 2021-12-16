@@ -5,11 +5,11 @@ using UnityEngine;
 public class Capsule : PlayerController
 {
     //ENCAPSULATION
-    int jumpCount = 1;
+    int jumpCount = 0;
     // Start is called before the first frame update
     void Start()
     {
-        characterForce = 4;
+        characterForce = 7;
     }
 
     // Update is called once per frame

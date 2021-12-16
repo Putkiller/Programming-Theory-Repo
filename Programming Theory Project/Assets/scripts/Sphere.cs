@@ -7,7 +7,7 @@ public class Sphere : PlayerController
     // Start is called before the first frame update
     void Start()
     {
-        characterForce = 5;
+        characterForce = 7;
     }
 
     // Update is called once per frame

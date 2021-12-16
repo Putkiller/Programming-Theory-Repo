@@ -9,7 +9,7 @@ public class MainManager : MonoBehaviour
     [SerializeField]
     string playerName;
 
-    public int playerCharacter = 2; //1= sphere, 2= cube, 3 = capsule
+    public static int playerCharacter = 2; //1= sphere, 2= cube, 3 = capsule
 
     //manages data between scenes
     public static MainManager Instance;
