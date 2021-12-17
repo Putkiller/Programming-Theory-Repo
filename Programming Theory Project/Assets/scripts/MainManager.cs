@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainManager : MonoBehaviour
 {
     [SerializeField]
-    string playerName;
+    public static string playerName;
 
     public static int playerCharacter = 2; //1= sphere, 2= cube, 3 = capsule
 
