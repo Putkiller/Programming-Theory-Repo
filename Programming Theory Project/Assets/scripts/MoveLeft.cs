@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveLeft : MonoBehaviour
 {
     [SerializeField]
-    float speed = 10;
+    float speed = 15;
 
     float posMinX = -20;
     // Start is called before the first frame update

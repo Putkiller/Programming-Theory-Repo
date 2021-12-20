@@ -10,12 +10,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI playerName;
 
-    public int score =0;
+    public int score = 0;
     [SerializeField] TextMeshProUGUI scoreText;
     // Start is called before the first frame update
     void Start()
     {
         playerName.text = "Player: " + MainManager.playerName;
+        scoreText.text = "Score: " + score;
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     {
         if(gameOver)
         {
-
+            //retry button appears
         }
     }
 

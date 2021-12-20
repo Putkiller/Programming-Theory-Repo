@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.GetComponent<Ground>())
         {
             isGrounded = true;
-        } else if ( collision.gameObject.GetComponent<MoveLeft>())
+        } else if ( collision.gameObject.GetComponent<MoveLeft>() != null)
         {
             GameManager.gameOver = true;
         }
