@@ -25,30 +25,6 @@ public class MainManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     
-    public void StartGame()
-    {
-        SceneManager.LoadScene(1);
-    }
-
-    public void StringInput(string s)
-    {
-        playerName = s;
-        Debug.Log("player name is: " + playerName);
-    }
-
-    //a reference for selecting character type
-    //using OnClick event in button inspector
-    public void SetToCube()
-    {
-        playerCharacter = 2;
-    }
-    public void SetToSphere()
-    {
-        playerCharacter = 1;
-    }
-    public void SetToCapsule()
-    {
-        playerCharacter = 3;
-    }
+    
 
 }
