@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
+    //ENCAPSULATION
     [SerializeField]
     float speed = 15;
 

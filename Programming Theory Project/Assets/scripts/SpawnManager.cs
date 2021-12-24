@@ -6,10 +6,12 @@ public class SpawnManager : MonoBehaviour
 {
     
     public GameObject obstacle;
+
+    //ENCAPSULATION
     [SerializeField]
     Vector3 spawnPos;
     Vector3 spawnPosPlayer;
-
+    //ENCAPSULATION
     float spawnRate = 2.0f;
 
     [SerializeField] List<GameObject> playerType = new List<GameObject>(3);
@@ -35,6 +37,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    //ABSTRACTION
     IEnumerator Spawn()
     {
         while(!GameManager.gameOver)

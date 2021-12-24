@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //ENCAPSULATION
     [SerializeField]
     protected Rigidbody playerRb;
     [SerializeField]
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
         
 
     }
-
+    //ABSTRACTION
     protected virtual void Jump()
     {
         playerRb.AddForce(new Vector3(0, 1, 0)*characterForce, ForceMode.Impulse);
